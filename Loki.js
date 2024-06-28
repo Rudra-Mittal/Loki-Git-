@@ -5,7 +5,6 @@ import crypto from "crypto";
 import chalk from "chalk";
 import { diffLines } from "diff";
 import { Command } from "commander";
-import { argv } from "process";
 const program = new Command();
 class Loki {
 
@@ -126,21 +125,22 @@ class Loki {
             const parentFile=parentFiles.find((f)=>f.path===file.path);
             // console.log(parentFile);
             if(parentFile){
+                console.log('\n\nChanges in file: '+file.path +'\n\n');
                     const parentFileContent=await fs.readFile(path.join(this.objectsPath,parentFile.hash.slice(0,2),parentFile.hash.slice(3)),"utf-8");
                     const diff=diffLines(parentFileContent,currFileContent);
                     
                     // console.log(diff)
                     diff.forEach((line)=>{
                         if(line.added){
-                            process.stdout.write("+ "+chalk.green(line.value));
+                            console.log("+ "+chalk.green(line.value));
                         }else if(line.removed){
-                            process.stdout.write("- "+chalk.red(line.value));
+                            console.log("- "+chalk.red(line.value));
                         }else{
                             // console.log(chalk.gray(line.value));
                         }
                     })
             }else {
-                console.log('new file in this commit \n'+chalk.green(`+ ${file.path}`));
+                console.log('\nnew file in this commit \n'+chalk.green(`+ ${file.path}`));
                 
             }
 

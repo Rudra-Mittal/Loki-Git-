@@ -33,28 +33,28 @@ You can use the following commands with Loki:
 
 Initialize an empty Loki repository in the current directory:
 ```bash
-./loki init
+loki  init
 Add Files to the Index
 Add a file to the staging area:
 
 bash
-./loki add <file>
+loki add <file>
 Commit Changes
 Commit the staged files with a commit message:
 
 bash
-./loki commit <message>
+loki commit <message>
 View Commit Logs
 
 Display the commit history:
 
 bash
-./loki log
+loki log
 Show Differences Between Commits
 Show the differences between the current commit and the previous commit:
 
 bash
-./loki diff
+loki diff
 Project Structure
 .loki: The directory where all Loki files are stored.
 objects: Contains all the objects (files and commits).
@@ -63,18 +63,18 @@ index: Contains the staged files.
 Example
 bash
 # Initialize a new Loki repository
-./loki init
+loki init
 
 # Add a file to the staging area
-./loki add example.txt
+loki add example.txt
 
 # Commit the changes
-./loki commit "Initial commit"
+loki commit "Initial commit"
 
 # View the commit log
-./loki log
+loki log
 
 # Show the differences between the current commit and the previous commit
-./loki diff
+loki diff
 Contributing
 Feel free to submit issues and pull requests. For major changes, please open an issue first to discuss what you would like to change.

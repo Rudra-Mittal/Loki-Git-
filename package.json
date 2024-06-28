@@ -15,5 +15,8 @@
     "commander": "^12.1.0",
     "diff": "^5.2.0",
     "figlet": "^1.7.0"
+  },
+  "bin": {
+    "loki": "./Loki.js"
   }
 }
